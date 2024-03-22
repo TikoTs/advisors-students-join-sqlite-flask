@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <title>Students of Advisor</title>
+</head>
+<body>
+<div class="students-container">
+    <div class="students-table">
+        <h3 style="background: rgba(112.520718,44.062154,249.437846,0.15)">Students of Advisor: {{ advisor_name }}</h3>
+        {% if students %}
+            <ol>
+                {% for student in students %}
+                    <li style="font-size: 18px">{{ student[1] }}</li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <p>No students found for this advisor.</p>
+        {% endif %}
+        <a href="/" style="color: rgba(112.520718,44.062154,249.437846,0.3) ">Go Back to Advisors List</a>
+
+    </div>
+</div>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box
+    }
+
+    .students-container {
+        width: 100vw;
+        height: 100vh;
+        min-height: 550px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a:hover {
+        opacity: 0.8
+    }
+
+    ol {
+        display: flex;
+        flex-direction: column;
+        row-gap: 17px;
+    }
+</style>
+</body>
+</html>
